@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>test post detail</h1>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.username }} | {{ post.created_on }}</p>
+    <p>{{ post.description | safe }}</p>
+{%endblock%}
