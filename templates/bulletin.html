@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+{% for post in post_list %}
+<div class="col-md-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="image-container">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                {% else %}
+                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                {% endif %}
+                <div class="image-flash">
+                    <p class="author">User: {{ post.username }}</p>
+                </div>
+            </div>
+            <a href="#" class="post-link">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text">{{ post.blurb }}</p>
+            </a>
+            <hr />
+            <p class="card-text text-muted h6">Post Created: {{ post.just_date }} <i class="far fa-heart"></i></p>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {%endblock%}

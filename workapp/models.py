@@ -23,3 +23,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def just_date(self):
+        return self.created_on.date()
