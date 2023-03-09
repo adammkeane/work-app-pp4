@@ -12,9 +12,9 @@ class PostList(generic.ListView):
 
 class PostDetail(View):
 
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug, id, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        post = get_object_or_404(queryset, slug=slug, id=id)
 
         return render(
             request,

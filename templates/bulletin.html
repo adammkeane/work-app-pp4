@@ -15,7 +15,7 @@
                     <p class="author">User: {{ post.username }}</p>
                 </div>
             </div>
-            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+            <a href="{% url 'post_detail' post.slug post.id %}" class="post-link">
                 <h2 class="card-title">{{ post.title }}</h2>
                 <p class="card-text">{{ post.blurb }}</p>
             </a>
