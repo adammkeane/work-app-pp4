@@ -6,10 +6,10 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):
+
     title = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=105, unique=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts")
-    username2 = User.username
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
