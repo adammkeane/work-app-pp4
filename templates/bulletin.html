@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 {% for post in post_list %}
@@ -7,7 +8,7 @@
         <div class="card-body">
             <div class="image-container">
                 {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                <img class="card-img-top" src="{% static 'images/side-hustle-logo-2.PNG' %}">
                 {% else %}
                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                 {% endif %}
