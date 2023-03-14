@@ -3,10 +3,13 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
+POST_TYPE = ((0, "Service"), (1, "Request"))
+PAYMENT_TYPE = ((0, "Per Hour"), (1, "Total Payment"), (2, "Job Dependant"))
 
 
 class Post(models.Model):
 
+    post_type = models.IntegerField(choices=POST_TYPE, default=0)
     title = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=55, unique=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts")
@@ -15,6 +18,8 @@ class Post(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     blurb = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now=True)
+    payment_type = models.IntegerField(choices=PAYMENT_TYPE, default=0)
+    rate = models.PositiveIntegerField(default=0)
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
