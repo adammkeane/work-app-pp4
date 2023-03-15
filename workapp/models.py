@@ -10,8 +10,8 @@ PAYMENT_TYPE = ((0, "Per Hour"), (1, "Total Payment"), (2, "Job Dependant"))
 class Post(models.Model):
 
     post_type = models.IntegerField(choices=POST_TYPE, default=0)
-    title = models.CharField(max_length=50, unique=True)
-    slug = models.SlugField(max_length=55, unique=True)
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=55)
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts")
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField()

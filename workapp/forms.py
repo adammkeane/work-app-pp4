@@ -1,5 +1,6 @@
 from .models import Post
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 class PostForm(forms.ModelForm):
@@ -8,7 +9,6 @@ class PostForm(forms.ModelForm):
         fields = (
             'post_type',
             'title',
-            'slug',
             'username',
             'description',
             'featured_image',
@@ -17,3 +17,6 @@ class PostForm(forms.ModelForm):
             'rate',
             'status',
             )
+        labels = {
+            'rate': _('Rate (€)'),
+        }

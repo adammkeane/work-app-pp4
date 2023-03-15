@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.utils.text import slugify
 from .models import Post
 from .forms import PostForm
 
@@ -66,6 +67,8 @@ class PostCreate(View):
 
         if post_form.is_valid():
             entry = post_form.save()
+            entry.slug = slugify(f'{entry.title}-{entry.username}')
+            entry.save()
         else:
             post_form = PostForm()
 
