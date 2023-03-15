@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
+from .forms import PostForm
 
 
 class PostList(generic.ListView):
@@ -66,4 +67,7 @@ class PostCreate(View):
         return render(
             request,
             'post_create.html',
+            {
+                'post_form': PostForm(),
+            },
         )

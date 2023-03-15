@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 
 <form action="{% url 'post_created' %}" method="post">
-    <input type="text">
+    {{ post_form | crispy }}
+    {% csrf_token %}
     <button type="submit">Create Post</button>
 
 </form>
