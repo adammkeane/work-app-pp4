@@ -3,7 +3,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<form action="{% url 'post_created' %}" method="post">
+<form action="{% url 'post_create' %}" method="post">
     {{ post_form | crispy }}
     {% csrf_token %}
     <button type="submit">Create Post</button>
