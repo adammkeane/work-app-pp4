@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 from .models import Post
 from .forms import PostForm
 
@@ -81,3 +82,12 @@ class PostCreate(View):
                 'post': post,
             },
         )
+
+
+class ProfilePage(generic.ListView):
+    model = Post
+    template_name = 'profile.html'
+    pagenate_by = 10
+
+    def get_queryset(self):
+        return Post.objects.filter(username=self.kwargs.get('user'))
