@@ -3,28 +3,38 @@
 
 {% block content %}
 {% for post in post_list %}
-<div class="col-md-4">
-    <div class="card mb-4">
-        <div class="card-body">
-            <div class="image-container">
-                {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img-top" src="{% static 'images/side-hustle-logo-2.PNG' %}">
-                {% else %}
-                <img class="card-img-top" src=" {{ post.featured_image.url }}">
-                {% endif %}
-                <div class="image-flash">
-                    <a href="{% url 'profile' post.username.pk %}">User: {{ post.username }}</a>
+<div class="container mt-4">
+    <div class="card">
+        <div class="row no-gutters">
+            <div class="col-4">
+                <div class="card-body">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img class="rounded img-fluid" src="{% static 'images/FullLogo_square.png' %}">
+                    {% else %}
+                    <img class="rounded img-fluid" src=" {{ post.featured_image.url }}">
+                    {% endif %}
                 </div>
             </div>
-            <a href="{% url 'post_detail' post.slug post.id %}" class="post-link">
-                <h2 class="card-title">{{ post.title }}</h2>
-                <p class="card-text">{{ post.blurb }}</p>
-            </a>
-            <hr />
-            <p class="card-text text-muted h6">Post Created: {{ post.just_date }} <i class="far fa-heart"></i></p>
+            <div class="col-8">
+                <div class="card-body">
+                    <a href="{% url 'post_detail' post.slug post.id %}">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                    </a>
+                    <p class="card-text">{{ post.blurb }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer row no-gutters">
+            <div class="col">
+                <a href="{% url 'profile' post.username.pk %}">{{ post.username }}</a>
+            </div>
+            <div class="col text-right">
+                <p class="card-text text-muted h6">Post Created: {{ post.just_date }}</p>
+            </div>
         </div>
     </div>
 </div>
+
 {% endfor %}
 <a href="{% url 'post_create' %}"> Create a Post</a>
 {%endblock%}
