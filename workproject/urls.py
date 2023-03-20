@@ -18,6 +18,7 @@ from django.urls import path, include
 from workapp import views
 
 urlpatterns = [
+    path('', views.HomePage.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('bulletin/', include('workapp.urls'), name='workapp_urls'),

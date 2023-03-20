@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 {% load crispy_forms_tags %}
-
-<form action="{% url 'post_create' %}" method="post">
-    {{ post_form | crispy | safe }}
-    {% csrf_token %}
-    <button type="submit">Create Post</button>
-
-</form>
+<div class="container my-4 ">
+    <form action="{% url 'post_create' %}" method="post">
+        {{ post_form | crispy | safe }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+</div>
 
 {%endblock%}

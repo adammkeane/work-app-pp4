@@ -6,6 +6,10 @@ from .models import Post
 from .forms import PostForm
 
 
+class HomePage(generic.TemplateView):
+    template_name = 'index.html'
+
+
 class BulletinHome(generic.TemplateView):
     template_name = 'bulletin_home.html'
 
