@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container justify-content-center text-center">
+    <div class="mt-4">
+        <h1>Bulletin Board</h1>
+    </div>
+    <div class="mt-4">
+        <p class="mb-1">Services on offer</p>
+        <a class=" btn btn-primary" href="{% url 'bulletin_services' %}">Services</a>
+    </div>
+    <div class="mt-4">
+        <p class="mb-1">Requests for Services</p>
+        <a class="btn btn-primary" href="{% url 'bulletin_requests' %}">Requests</a>
+    </div>
+    <div class="mt-4">
+        <p class="mb-1 mx-2">Have a Service to offer, or want to make a Request of your own?</p>
+        <a class="btn btn-primary" href="{% url 'post_create' %}">Create Post</a>
+    </div>
+</div>
+{%endblock%}

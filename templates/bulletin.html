@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block content %}
-<div class="row no-gutters mt-4">
-    <a class="btn btn-primary mx-auto" href="{% url 'post_create' %}">Create Post</a>
-</div>
 
 {% for post in post_list %}
 <div class="container mt-4">
     <div class="card">
+        <!-- <div class="card-header text-center">
+            {{ post.get_post_type_display }}
+        </div> -->
         <div class="row no-gutters">
             <div class="col-4">
                 <div class="card-body">
