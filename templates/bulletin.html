@@ -29,16 +29,15 @@
             </div>
         </div>
         <div class="card-footer row no-gutters">
-            <div class="col">
+            <div class="col text-left">
                 <a href="{% url 'profile' post.username.pk %}">{{ post.username }}</a>
             </div>
             <div class="col text-right">
-                <p class="card-text text-muted h6">Post Created: {{ post.just_date }}</p>
+                <p class="card-text text-muted h6">{{ post.just_date }}</p>
             </div>
         </div>
     </div>
 </div>
-
 {% endfor %}
 
 {% if is_paginated %}

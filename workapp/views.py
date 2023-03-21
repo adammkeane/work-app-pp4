@@ -29,7 +29,6 @@ class PostListRequest(generic.ListView):
 
 
 class PostDetail(View):
-
     def get(self, request, slug, id, *args, **kwargs):
         post = get_object_or_404(Post.objects, slug=slug, id=id)
 
