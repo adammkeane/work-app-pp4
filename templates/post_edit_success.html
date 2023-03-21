@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Post Success - Side Hustle{% endblock title %}
+
+{% block content %}
+
+<h1>Post successfully updated</h1>
+<a href="{% url 'post_detail' post.slug post.id %}">Look at your post here.</a>
+
+{%endblock%}

@@ -57,7 +57,7 @@ Profile - {{ post.username }} - Side Hustle
         </div>
         <div class="card-footer row no-gutters text-center">
             <div class="col text-right mx-2">
-                <a class="btn btn-primary" href="#">Edit Post</a>
+                <a class="btn btn-primary" href="{% url 'post_edit' post.pk %}">Edit Post</a>
             </div>
             <div class="col text-left mx-2">
                 <a class="btn btn-danger" href="#">Delete Post</a>

@@ -6,5 +6,4 @@ urlpatterns = [
     path('services/', views.PostListService.as_view(), name='bulletin_services'),
     path('requests/', views.PostListRequest.as_view(), name='bulletin_requests'),
     path('<slug:slug>/<slug:id>/', views.PostDetail.as_view(), name='post_detail'),
-    path('post_create/', views.PostCreate.as_view(), name='post_create'),
 ]

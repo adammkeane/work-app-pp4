@@ -24,4 +24,6 @@ urlpatterns = [
     path('bulletin/', include('workapp.urls'), name='workapp_urls'),
     path('accounts/', include('allauth.urls')),
     path('profile/<slug:user>/', views.ProfilePage.as_view(), name='profile'),
+    path('post_create/', views.PostCreate.as_view(), name='post_create'),
+    path('post_edit/<slug:post_id>/', views.PostEdit.as_view(), name='post_edit'),
 ]
