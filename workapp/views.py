@@ -61,20 +61,20 @@ class PostCreate(View):
             post = get_object_or_404(Post.objects, id=entry.pk)
 
             return render(
-            request,
-            'post_create_success.html',
-            {
-                'post': post,
-            },
-        )
+                request,
+                'post_create_success.html',
+                {
+                    'post': post,
+                },
+            )
         else:
             return render(
-            request,
-            'post_create.html',
-            {
-                'post_form': PostForm(),
-            },
-        )
+                request,
+                'post_create.html',
+                {
+                    'post_form': PostForm(data=request.POST),
+                },
+            )
 
 
 class PostEdit(View):
@@ -97,17 +97,26 @@ class PostEdit(View):
             entry = post_form.save()
             entry.slug = slugify(f'{entry.title}-{entry.username}')
             entry.save()
+
+            return render(
+                request,
+                'post_edit_success.html',
+                {
+                    'post': post,
+                },
+            )
+
         else:
-            post_form = PostForm(instance=post)
+            return render(
+                request,
+                'post_edit.html',
+                {
+                    'post_form': PostForm(instance=post),
+                    'post': post,
+                },
+            )
 
-        return render(
-            request,
-            'post_edit_success.html',
-            {
-                'post': post,
-            },
-        )
-
+        
 
 class ProfilePage(generic.ListView):
     model = Post
