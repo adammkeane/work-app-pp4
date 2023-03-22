@@ -55,14 +55,14 @@ div,
 }
 
 .navbar-brand {
-   font-family: 'Cookie', cursive;
+   font-family: 'Cookie', sans-serif;
    font-size: 28px;
 }
 
 .navbar-brand, 
 h1 span,
 .brand-h1 {
-   font-family: 'Cookie', cursive;
+   font-family: 'Cookie', sans-serif;
 }
 
 .navbar-brand {

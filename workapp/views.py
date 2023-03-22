@@ -116,7 +116,20 @@ class PostEdit(View):
                 },
             )
 
-        
+
+class PostDelete(View):
+    def get(self, request, post_id, *args, **kwargs):
+        post = get_object_or_404(Post.objects, id=post_id)
+        user = post.username.pk
+        post.delete()
+        return render(
+                    request,
+                    'post_delete_success.html',
+                    {
+                        'user': user,
+                    },
+                )
+
 
 class ProfilePage(generic.ListView):
     model = Post

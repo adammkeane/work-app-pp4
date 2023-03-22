@@ -60,7 +60,7 @@ Profile - {{ post.username }} - Side Hustle
                 <a class="btn btn-primary" href="{% url 'post_edit' post.pk %}">Edit Post</a>
             </div>
             <div class="col text-left mx-2">
-                <a class="btn btn-danger" href="#">Delete Post</a>
+                <a class="btn btn-danger" href="{% url 'post_delete' post.pk %}">Delete Post</a>
             </div>
         </div>
     </div>
