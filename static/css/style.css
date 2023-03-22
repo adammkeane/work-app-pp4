@@ -4,8 +4,50 @@
 
 /* Nav Bar */
 .navbar-dark .navbar-nav .nav-link {
-   color: rgba(255,255,255,.75);
+   color: rgba(255, 255, 255, .75);
 }
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
    color: rgb(255, 255, 255);
- }
+}
+
+.bg-dark,
+.btn-primary {
+   background-color: #2C5963 !important;
+   border-color: #2C5963 !important;
+}
+
+.btn-primary:hover {
+   background-color: #23474D !important;
+   border-color: #23474D !important;
+}
+
+.btn-danger {
+   background-color: #AA1D2B !important;
+   border-color: #AA1D2B !important;
+}
+
+.btn-danger:hover {
+   background-color: #9D1B28 !important;
+   border-color: #9D1B28 !important;
+}
+
+.dropdown-item:active {
+   background-color: #2C5963;
+}
+
+a,
+a:hover,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+.page-link,
+.page-link:hover {
+   color: #2C5963;
+}
