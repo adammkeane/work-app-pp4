@@ -1,5 +1,7 @@
-/* .body {
-   background-color: #f9fff3;
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Roboto&display=swap');
+
+/* body {
+   font-family: 'Roboto', sans-serif;
 } */
 
 /* Nav Bar */
@@ -50,4 +52,27 @@ div,
 .page-link,
 .page-link:hover {
    color: #2C5963;
+}
+
+.navbar-brand {
+   font-family: 'Cookie', cursive;
+   font-size: 28px;
+}
+
+.navbar-brand, 
+h1 span,
+.brand-h1 {
+   font-family: 'Cookie', cursive;
+}
+
+.navbar-brand {
+   font-size: 28px;
+}
+
+h1 span {
+   font-size: 4.5rem;
+}
+
+.brand-h1 {
+   font-size: 3.5rem;
 }

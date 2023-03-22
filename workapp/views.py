@@ -58,16 +58,21 @@ class PostCreate(View):
             entry = post_form.save()
             entry.slug = slugify(f'{entry.title}-{entry.username}')
             entry.save()
-        else:
-            post_form = PostForm()
+            post = get_object_or_404(Post.objects, id=entry.pk)
 
-        post = get_object_or_404(Post.objects, id=entry.pk)
-
-        return render(
+            return render(
             request,
             'post_create_success.html',
             {
                 'post': post,
+            },
+        )
+        else:
+            return render(
+            request,
+            'post_create.html',
+            {
+                'post_form': PostForm(),
             },
         )
 
