@@ -55,6 +55,7 @@ Profile - {{ post.username }} - Side Hustle
                 <p class="card-text text-muted h6">{{ post.just_date }}</p>
             </div>
         </div>
+        {% if user.id is post.username.pk %}
         <div class="card-footer row no-gutters text-center">
             <div class="col text-right mx-2">
                 <a class="btn btn-primary" href="{% url 'post_edit' post.pk %}">Edit Post</a>
@@ -63,6 +64,7 @@ Profile - {{ post.username }} - Side Hustle
                 <a class="btn btn-danger" href="{% url 'post_delete' post.pk %}">Delete Post</a>
             </div>
         </div>
+        {% endif %}
     </div>
 </div>
 {% endfor %}
