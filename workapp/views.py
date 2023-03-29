@@ -43,6 +43,7 @@ class PostDetail(View):
 
 class PostCreate(View):
     def get(self, request, *args, **kwargs):
+        username = request.user.username
         return render(
             request,
             'post_create.html',
@@ -55,7 +56,8 @@ class PostCreate(View):
         post_form = PostForm(data=request.POST)
 
         if post_form.is_valid():
-            entry = post_form.save()
+            entry = post_form.save(commit=False)
+            entry.username = request.user
             entry.slug = slugify(f'{entry.title}-{entry.username}')
             entry.save()
             post = get_object_or_404(Post.objects, id=entry.pk)
@@ -94,7 +96,8 @@ class PostEdit(View):
         post_form = PostForm(data=request.POST, instance=post)
 
         if post_form.is_valid():
-            entry = post_form.save()
+            entry = post_form.save(commit=False)
+            entry.username = request.user
             entry.slug = slugify(f'{entry.title}-{entry.username}')
             entry.save()
 
