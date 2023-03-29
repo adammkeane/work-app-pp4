@@ -12,6 +12,17 @@ Bulletin Board - {{ post.get_post_type_display }}s - Side Hustle
 {% block content %}
 
 {% for post in post_list %}
+{% if forloop.counter < 2 %}
+<div class="container text-center">
+    <div>
+        <h1 class="brand-h1">{{ post.get_post_type_display }}s</h1>
+    </div>
+</div>
+
+{% endif %}
+{% endfor %}
+
+{% for post in post_list %}
 <div class="container mt-4">
     <div class="card">
         <div class="card-header text-center">
@@ -49,7 +60,7 @@ Bulletin Board - {{ post.get_post_type_display }}s - Side Hustle
 {% endfor %}
 
 {% if is_paginated %}
-<nav aria-label="Page navigation" class="mt-5">
+<nav aria-label="Page navigation" class="mt-4">
     <ul class="pagination justify-content-center">
         {% if page_obj.has_previous %}
         <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
