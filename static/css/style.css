@@ -69,6 +69,12 @@ h1 span,
    font-size: 28px;
 }
 
+/* Footer */
+#footer-copyright {
+   color: #ffffff;
+   margin-bottom: 0;
+}
+
 h1 span {
    font-size: 4.5rem;
 }
