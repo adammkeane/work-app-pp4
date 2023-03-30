@@ -1,10 +1,102 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Post - {{ post.username }}- {{ post.pk }} - Side Hustle{% endblock title %}
 
 {% block content %}
-    <h1>test post detail</h1>
+<div class="container text-center" id="post-detail">
     <h1>{{ post.title }}</h1>
-    <p>{{ post.username }} | {{ post.created_on }}</p>
-    <p>{{ post.description | safe }}</p>
+    <a href="{% url 'profile' post.username.pk %}">{{ post.username }}</a>
+
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-body">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img class="rounded img-fluid" src="{% static 'images/full_logo_transparent.png' %}">
+                    {% else %}
+                    <img class="rounded img-fluid" src=" {{ post.featured_image.url }}">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-header text-center">
+                    Description
+                </div>
+                <div class="card-body">
+                    {{ post.description | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-header text-center">
+                    Rate / Payment Type
+                </div>
+                <div class="card-body">
+                    €{{ post.rate }} / {{ post.get_payment_type_display }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-header text-center">
+                    Estimated Time Needed
+                </div>
+                <div class="card-body">
+                    <p>#</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-header text-center">
+                    Contact Information
+                </div>
+                <div class="card-body">
+                    <p>#</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-header text-center">
+                    Profile Link
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'profile' post.username.pk %}">{{ post.username }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-header text-center">
+                    Post Created
+                </div>
+                <div class="card-body">
+                    <p>{{ post.created_on }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {%endblock%}

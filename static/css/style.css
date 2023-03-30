@@ -88,3 +88,8 @@ h1 span {
 .brand-h1 {
    font-size: 3.5rem;
 }
+
+/* Post Detail */
+#post-detail p {
+   margin-bottom: 0;
+}
