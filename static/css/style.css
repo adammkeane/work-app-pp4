@@ -69,6 +69,10 @@ h1 span,
    font-size: 28px;
 }
 
+.dropdown-item {
+   white-space: normal;
+}
+
 /* Footer */
 #footer-copyright {
    color: #ffffff;
