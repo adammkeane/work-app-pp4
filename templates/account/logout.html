@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sign In - Side Hustle{% endblock title %}
+
+{% block content %}
+
+<div class="container justify-content-center text-center">
+  <h1 class="brand-h1 mx-4">Sign Out</h1>
+
+  <p>Click button below to confirm sign out.</p>
+
+  <form method="post" action="/accounts/logout/">
+    <input type="hidden" name="csrfmiddlewaretoken"
+      value="bX5vlMJFHyHZ4Bfu7dt1nk9Zpvn249huqGVzmbitn3Cq5fom5t5tdTqmR2Jl9IzM">
+
+    <button class="btn btn-primary" type="submit">Sign Out</button>
+    {% csrf_token %}
+  </form>
+</div>
+
+
+{%endblock%}
