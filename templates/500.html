@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}500 - Side Hustle{% endblock title %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center">
+    <h1>500 Internal Server Error</h1>
+    <p>Don't worry.This is us, not you!</p>
+    <a href="{% url 'home' %}" class="btn btn-primary mt-4">Home</a>
+</div>
+{% endblock %}
