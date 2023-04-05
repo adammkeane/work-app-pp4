@@ -31,12 +31,19 @@ class PostListRequest(generic.ListView):
 class PostDetail(View):
     def get(self, request, slug, id, *args, **kwargs):
         post = get_object_or_404(Post.objects, slug=slug, id=id)
-
+        reviews = post.post_review.order_by('created_on')
+        if len(reviews) > 0:
+            no_reviews = False
+        else:
+            no_reviews = True
+        
         return render(
             request,
             'post_detail.html',
             {
                 'post': post,
+                'reviews': reviews,
+                'no_reviews': no_reviews,
             },
         )
 

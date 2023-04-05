@@ -111,5 +111,38 @@
             </div>
         </div>
     </div>
+    <h2 class="brand-h1 mx-4 mt-4">Reviews</h2>
+    {% for review in reviews %}
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-body">
+                    <p class="mb-2"><strong>{{ review.title }}</strong></p>
+                    <p class="mb-2">{{ review.description }}</p>
+                    <p><strong> Rating: {{ review.get_rating_display }}<i class="fa-regular fa-star"></i></strong></p>
+                </div>
+                <div class="card-footer row no-gutters">
+                    <div class="col text-left">
+                        <a class="card-text" href="{% url 'profile' review.username.pk %}">{{ review.username }}</a>
+                    </div>
+                    <div class="col text-right">
+                        <p class="card-text text-muted h6">{{ review.created_on }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %} 
+    {% if no_reviews %} 
+    <div class="card mt-4">
+        <div class="row no-gutters">
+            <div class="col">
+                <div class="card-body">
+                    <p>No reviews for this post yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}   
 </div>
 {%endblock%}
