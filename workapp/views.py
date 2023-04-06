@@ -37,7 +37,7 @@ class PostDetail(View):
             no_reviews = False
         else:
             no_reviews = True
-        
+
         return render(
             request,
             'post_detail.html',
@@ -90,17 +90,23 @@ class PostCreate(UserPassesTestMixin, View):
         return self.request.user.is_authenticated
 
 
-class PostEdit(View):
+class PostEdit(UserPassesTestMixin, View):
     def get(self, request, post_id, *args, **kwargs):
         post = get_object_or_404(Post.objects, id=post_id)
-        return render(
-            request,
-            'post_edit.html',
-            {
-                'post_form': PostForm(instance=post),
-                'post': post,
-            },
-        )
+        if post.username == self.request.user:
+            return render(
+                request,
+                'post_edit.html',
+                {
+                    'post_form': PostForm(instance=post),
+                    'post': post,
+                },
+            )
+        else:
+            return render(
+                request,
+                '403.html',
+            )
 
     def post(self, request, post_id, *args, **kwargs):
         post = get_object_or_404(Post.objects, id=post_id)
@@ -130,19 +136,31 @@ class PostEdit(View):
                 },
             )
 
+    def test_func(self):
+        return self.request.user.is_authenticated
 
-class PostDelete(View):
+
+class PostDelete(UserPassesTestMixin, View):
     def get(self, request, post_id, *args, **kwargs):
         post = get_object_or_404(Post.objects, id=post_id)
-        user = post.username.pk
-        post.delete()
-        return render(
-                    request,
-                    'post_delete_success.html',
-                    {
-                        'user': user,
-                    },
-                )
+        if post.username == self.request.user:
+            user = post.username.pk
+            post.delete()
+            return render(
+                        request,
+                        'post_delete_success.html',
+                        {
+                            'user': user,
+                        },
+                    )
+        else:
+            return render(
+                request,
+                '403.html',
+            )
+
+    def test_func(self):
+        return self.request.user.is_authenticated
 
 
 class ProfilePage(generic.ListView):
