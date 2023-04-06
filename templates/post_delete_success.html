@@ -4,7 +4,13 @@
 
 {% block content %}
 
-<h1>Post successfully deleted</h1>
-<a href="{% url 'profile' user %}">Profile Page</a>
+<div class="container text-center">
+    <div>
+        <h1 class="brand-h1 mx-4">Post successfully deleted</h1>
+    </div>
+    <div class="mt-4">
+        <a href="{% url 'profile' user %}" class="btn btn-primary">Profile Page</a>
+    </div>
+</div>
 
 {%endblock%}
