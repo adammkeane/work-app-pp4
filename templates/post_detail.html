@@ -79,9 +79,15 @@
                 <div class="card-header text-center">
                     Contact Information
                 </div>
+                {% if user.is_authenticated %}
                 <div class="card-body">
                     <p>#</p>
                 </div>
+                {% else %}
+                <div class="card-body">
+                    <p>Login to view Contact Information</p>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

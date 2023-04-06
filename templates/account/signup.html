@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register - Side Hustle{% endblock title %}
+
+{% block content %}
+
+<div class="container justify-content-center text-center">
+  <h1 class="brand-h1 mx-4">Register</h1>
+  
+  {% if form.errors %}
+  {% for field in form %}
+  {% for error in field.errors %}
+  <div class="alert alert-error mt-4 mb-0 btn-danger">
+          <strong>{{ error|escape }}</strong>
+  </div>
+  {% endfor %}
+  {% endfor %}
+  {% for error in form.non_field_errors %}
+  <div class="alert alert-error mt-4 mb-0 btn-danger">
+          <strong>{{ error|escape }}</strong>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <form class="signup mt-4 mx-4" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      <p><label for="id_username">Username</label><br><input type="text" name="username" placeholder="Username"
+              autocomplete="username" minlength="1" maxlength="150" required id="id_username" class="text-center"></p>
+      <p><label for="id_email">E-mail (optional)</label><br><input type="email" name="email" placeholder="E-mail address"
+              autocomplete="email" id="id_email" class="text-center"></p>
+      <p><label for="id_password1">Password</label><br><input type="password" name="password1" placeholder="Password"
+              autocomplete="new-password" required id="id_password1" class="text-center"></p>
+      <p><label for="id_password2">Confirm Password</label><br><input type="password" name="password2"
+              placeholder="Confirm Password" autocomplete="new-password" required id="id_password2" class="text-center"></p>
+
+      <button class="btn btn-primary mt-2" type="submit">Register</button>
+  </form>
+</div>
+
+{%endblock%}
