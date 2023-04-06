@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.utils.text import slugify
 from django.contrib.auth.models import User
-from .models import Post
+from .models import Post, PostReview
 from .forms import PostForm
 
 

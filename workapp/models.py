@@ -31,6 +31,21 @@ class Post(models.Model):
     def just_date(self):
         return self.created_on.date()
 
+    def avg_rating(self):
+        reviews = self.post_review.all()
+        if len(reviews) > 0:
+            review_total = 0
+            for review in reviews:
+                review_total += review.rating
+            avg_rating = (review_total)/(len(reviews))
+            return avg_rating
+        else: 
+            return 'N/A'
+
+    def reviews_total(self):
+        reviews = self.post_review.all()
+        return len(reviews)
+
 
 RATING = (
     (0, "0"),
