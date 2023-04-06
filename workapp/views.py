@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.utils.text import slugify
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import UserPassesTestMixin
 from .models import Post, PostReview
 from .forms import PostForm
 
@@ -48,7 +49,7 @@ class PostDetail(View):
         )
 
 
-class PostCreate(View):
+class PostCreate(UserPassesTestMixin, View):
     def get(self, request, *args, **kwargs):
         username = request.user.username
         return render(
@@ -84,6 +85,9 @@ class PostCreate(View):
                     'post_form': PostForm(data=request.POST),
                 },
             )
+
+    def test_func(self):
+        return self.request.user.is_authenticated
 
 
 class PostEdit(View):
