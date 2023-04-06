@@ -37,7 +37,8 @@ class Post(models.Model):
             review_total = 0
             for review in reviews:
                 review_total += review.rating
-            avg_rating = (review_total)/(len(reviews))
+            avg_rating_raw = (review_total)/(len(reviews))
+            avg_rating = round(avg_rating_raw, 1)
             return avg_rating
         else: 
             return 'N/A'
