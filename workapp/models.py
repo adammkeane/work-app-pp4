@@ -13,7 +13,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=55)
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    description = models.TextField()
+    description = models.TextField(max_length=4000)
     featured_image = CloudinaryField('image', default='placeholder')
     blurb = models.TextField(blank=True, max_length=200)
     created_on = models.DateTimeField(auto_now=True)

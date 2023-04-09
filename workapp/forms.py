@@ -2,6 +2,7 @@ from .models import Post
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
+from cloudinary.forms import CloudinaryFileField
 
 
 class PostForm(forms.ModelForm):
@@ -16,10 +17,11 @@ class PostForm(forms.ModelForm):
             'payment_type',
             'rate',
             'status',
-            )
+        )
         labels = {
             'rate': _('Rate (€)'),
             'featured_image': _('Featured Image (shown on the Bulletin Board)'),
+            'blurb': _('Blurb (max 200 characters)'),
         }
         widgets = {
             'description': SummernoteWidget(),

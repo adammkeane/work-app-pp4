@@ -61,7 +61,7 @@ class PostCreate(UserPassesTestMixin, View):
         )
 
     def post(self, request, *args, **kwargs):
-        post_form = PostForm(data=request.POST)
+        post_form = PostForm(request.POST, request.FILES)
 
         if post_form.is_valid():
             entry = post_form.save(commit=False)
@@ -110,7 +110,7 @@ class PostEdit(UserPassesTestMixin, View):
 
     def post(self, request, post_id, *args, **kwargs):
         post = get_object_or_404(Post.objects, id=post_id)
-        post_form = PostForm(data=request.POST, instance=post)
+        post_form = PostForm(request.POST, request.FILES, instance=post)
 
         if post_form.is_valid():
             entry = post_form.save(commit=False)
