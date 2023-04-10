@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Review Success - Side Hustle{% endblock title %}
+
+{% block content %}
+
+<div class="container text-center">
+    <div>
+        <h1 class="brand-h1 mx-4">Review successfully Created</h1>
+    </div>
+    <div class="mt-3">
+        <a href="{% url 'post_detail' post.slug post.id %}" class="btn btn-primary">View Reviewed Post</a>
+    </div>
+</div>
+
+{%endblock%}

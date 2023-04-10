@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Add Review - Side Hustle{% endblock title %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<div class="container">
+    <form action="{% url 'post_review_create' post_id %}" method="post">
+        {{ post_form | crispy | safe }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary mt-2">Add Review</button>
+    </form>
+</div>
+
+{%endblock%}

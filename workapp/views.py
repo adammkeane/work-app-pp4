@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import UserPassesTestMixin
 from .models import Post, PostReview
-from .forms import PostForm
+from .forms import PostForm, PostReviewForm
 
 
 class HomePage(generic.TemplateView):
@@ -51,7 +51,6 @@ class PostDetail(View):
 
 class PostCreate(UserPassesTestMixin, View):
     def get(self, request, *args, **kwargs):
-        username = request.user.username
         return render(
             request,
             'post_create.html',
@@ -170,3 +169,45 @@ class ProfilePage(generic.ListView):
 
     def get_queryset(self):
         return Post.objects.filter(username=self.kwargs.get('user'))
+
+
+class PostReviewCreate(UserPassesTestMixin, View):
+    def get(self, request, post_id, *args, **kwargs):
+        return render(
+            request,
+            'post_review_create.html',
+            {
+                'post_form': PostReviewForm(),
+                'post_id': post_id
+            },
+        )
+
+    def post(self, request, post_id, *args, **kwargs):
+        post_form = PostReviewForm(request.POST)
+
+        if post_form.is_valid():
+            entry = post_form.save(commit=False)
+            entry.username = request.user
+            entry.slug = slugify(f'{entry.title}-{entry.username}')
+            post = get_object_or_404(Post.objects, id=post_id)
+            entry.post = post
+            entry.save()
+
+            return render(
+                request,
+                'post_review_create_success.html',
+                {
+                    'post': post,
+                },
+            )
+        else:
+            return render(
+                request,
+                'post__review_create.html',
+                {
+                    'post_form': PostReviewForm(data=request.POST),
+                },
+            )
+
+    def test_func(self):
+        return self.request.user.is_authenticated

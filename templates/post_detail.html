@@ -120,7 +120,7 @@
     <div class="reverse-bg">
         <h2 class="brand-h1 mx-4 mt-4 reverse-bg">Reviews</h2>
     </div>
-    
+    <a href="{% url 'post_review_create' post.pk %}" class="btn btn-primary mt-4">Add Review</a>
     {% for review in reviews %}
     <div class="card mt-4">
         <div class="row no-gutters">

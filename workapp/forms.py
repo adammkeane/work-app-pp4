@@ -1,4 +1,4 @@
-from .models import Post
+from .models import Post, PostReview
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
@@ -26,3 +26,13 @@ class PostForm(forms.ModelForm):
         widgets = {
             'description': SummernoteWidget(),
         }
+
+
+class PostReviewForm(forms.ModelForm):
+    class Meta:
+        model = PostReview
+        fields = (
+                'title',
+                'description',
+                'rating',
+            )
