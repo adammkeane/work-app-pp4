@@ -16,7 +16,7 @@ class Post(models.Model):
     description = models.TextField(max_length=4000)
     featured_image = CloudinaryField('image', default='placeholder')
     blurb = models.TextField(blank=True, max_length=200)
-    created_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     payment_type = models.IntegerField(choices=PAYMENT_TYPE, default=0)
     rate = models.PositiveIntegerField(default=0)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -70,7 +70,7 @@ class PostReview(models.Model):
     slug = models.SlugField(max_length=55)
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField(max_length=10000)
-    created_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     rating = models.DecimalField(choices=RATING, max_digits=2, decimal_places=1)
 
     class Meta:

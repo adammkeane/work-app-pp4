@@ -67,7 +67,6 @@ SUMMERNOTE_CONFIG = {
     'summernote': {
         'width': '99.9%',
         'toolbar': [
-            ['style', ['style']],
             ['font', ['bold', 'italic', 'underline']],
             ['color', ['color']],
             ['table', ['table']],
