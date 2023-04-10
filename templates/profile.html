@@ -63,15 +63,15 @@ Profile - {{ post.username }} - Side Hustle
                 <a class="btn btn-primary" href="{% url 'post_edit' post.pk %}">Edit Post</a>
             </div>
             <div class="col text-left mx-2">
-                <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete Post</a>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete{{ post.id }}">Delete Post</button>
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="confirmDelete{{ post.id }}" tabindex="-1" aria-labelledby="confirmDelete{{ post.id }}Label" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header flex-column align-items-center">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                        <h5 class="modal-title" id="confirmDelete{{ post.id }}Label">Confirm Delete</h5>
                     </div>
                     <div class="modal-body text-center">
                         Are you sure you want to delete post?
