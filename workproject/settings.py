@@ -66,18 +66,18 @@ SUMMERNOTE_CONFIG = {
     'iframe': False,
     'summernote': {
         'width': '99.9%',
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline']],
+            ['color', ['color']],
+            ['table', ['table']],
+            ['insert', ['hr']],
+            ['view', ['fullscreen']],
+        ],
     },
-    'toolbar': [
-        ['style', ['style']],
-        ['font', ['bold', 'italic', 'underline', 'clear']],
-        ['fontname', ['fontname']],
-        ['color', ['color']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['table', ['table']],
-        ['insert', ['link', 'video', 'hr']],
-        ['view', ['fullscreen', 'codeview']],
-        ['help', ['help']]
-    ],
+    'css': (
+        '/static/css/summernote.css',
+    ),
 }
 
 MIDDLEWARE = [
