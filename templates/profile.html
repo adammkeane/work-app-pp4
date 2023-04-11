@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block title %}
+
 {% for post in post_list %}
 {% if forloop.counter < 2 %}
 Profile - {{ post.username }} - Side Hustle
 {% endif %}
 {% endfor %}
+
 {% endblock title %}
 
 {% block content %}
@@ -36,7 +38,6 @@ Profile - {{ post.username }} - Side Hustle
         <h1 class="brand-h1 mx-4">{{ post.username }}</h1>
     </div>
 </div>
-
 {% endif %}
 {% endfor %}
 
@@ -109,6 +110,7 @@ Profile - {{ post.username }} - Side Hustle
     </div>
 </div>
 {% endfor %}
+
 {% if is_paginated %}
 <nav aria-label="Page navigation" class="mt-4">
     <ul class="pagination justify-content-center">
