@@ -48,22 +48,26 @@ Profile - {{ post.username }} - Side Hustle
             {{ post.get_post_type_display }}
         </div>
         <div class="row no-gutters">
-            <div class="col-4">
-                <div class="card-body">
+            <div class="col-lg-4">
+                <div class="card-body pb-0 p-lg-4 text-center">
                     {% if "placeholder" in post.featured_image.url %}
-                    <img class="rounded img-fluid" src="{% static 'images/full_logo_transparent.png' %}">
+                    <a href="{% url 'post_detail' post.slug post.id %}">
+                        <img class="rounded img-fluid" src="{% static 'images/full_logo_transparent.png' %}">
+                    </a>
                     {% else %}
-                    <img class="rounded img-fluid" src=" {{ post.featured_image.url }}">
+                    <a href="{% url 'post_detail' post.slug post.id %}">
+                        <img class="rounded img-fluid" src=" {{ post.featured_image.url }}">
+                    </a>
                     {% endif %}
                 </div>
             </div>
-            <div class="col-8">
-                <div class="card-body">
+            <div class="col-lg-8">
+                <div class="card-body text-center text-lg-left pl-lg-0 pr-lg-4">
                     <a href="{% url 'post_detail' post.slug post.id %}">
                         <h2 class="card-title">{{ post.title }}</h2>
                     </a>
                     <p class="card-text">{{ post.blurb }}</p>
-                    <p class="mb-1"><strong> Rating: {{ post.avg_rating }} <i class="fa-regular fa-star"></i></strong></p>
+                    <p class="mb-1"><strong> Rating: {{ post.avg_rating }}<i class="fa-regular fa-star"></i></strong></p>
                     <p class="mt-0">Reviews: {{ post.reviews_total }}</p>
                 </div>
             </div>
