@@ -2,9 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Draft"), (1, "Published"))
 POST_TYPE = ((0, "Service"), (1, "Request"))
-PAYMENT_TYPE = ((0, "Per Hour"), (1, "Total Payment"), (2, "Job Dependant"))
+PAYMENT_TYPE = ((0, "Per Hour"), (1, "Total Payment"))
 
 
 class Post(models.Model):
@@ -19,7 +18,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     payment_type = models.IntegerField(choices=PAYMENT_TYPE, default=0)
     rate = models.PositiveIntegerField(default=0)
-    status = models.IntegerField(choices=STATUS, default=0)
+    contact_info = models.TextField(max_length=400)
 
     class Meta:
         # ordered in descending order, based on created_on value, so that newest posts are first.
@@ -30,6 +29,9 @@ class Post(models.Model):
 
     def just_date_created_on(self):
         return self.created_on.date()
+
+    def just_date_updated_on(self):
+        return self.updated_on.date()
 
     def avg_rating(self):
         reviews = self.post_review.all()
@@ -82,3 +84,6 @@ class PostReview(models.Model):
 
     def just_date_created_on(self):
         return self.created_on.date()
+
+    def just_date_updated_on(self):
+        return self.updated_on.date()

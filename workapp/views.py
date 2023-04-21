@@ -17,14 +17,14 @@ class BulletinHome(generic.TemplateView):
 
 class PostListService(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1, post_type=0).order_by('-created_on')
+    queryset = Post.objects.filter(post_type=0).order_by('-created_on')
     template_name = 'bulletin.html'
     paginate_by = 5
 
 
 class PostListRequest(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1, post_type=1).order_by('-created_on')
+    queryset = Post.objects.filter(post_type=1).order_by('-created_on')
     template_name = 'bulletin.html'
     paginate_by = 5
 
