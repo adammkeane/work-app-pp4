@@ -28,7 +28,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def just_date(self):
+    def just_date_created_on(self):
         return self.created_on.date()
 
     def avg_rating(self):
@@ -79,3 +79,6 @@ class PostReview(models.Model):
 
     def __str__(self):
         return self.title
+
+    def just_date_created_on(self):
+        return self.created_on.date()

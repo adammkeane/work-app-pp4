@@ -33,11 +33,11 @@ Bulletin Board - {{ post.get_post_type_display }}s - Side Hustle
                 <div class="card-body pb-0 p-lg-4 text-center">
                     {% if "placeholder" in post.featured_image.url %}
                     <a href="{% url 'post_detail' post.slug post.id %}">
-                        <img class="rounded img-fluid" src="{% static 'images/full_logo_transparent.png' %}">
+                        <img class="rounded img-fluid border" src="{% static 'images/full_logo_transparent.png' %}">
                     </a>
                     {% else %}
                     <a href="{% url 'post_detail' post.slug post.id %}">
-                        <img class="rounded img-fluid" src=" {{ post.featured_image.url }}">
+                        <img class="rounded img-fluid border" src=" {{ post.featured_image.url }}">
                     </a>
                     {% endif %}
                 </div>
@@ -58,7 +58,7 @@ Bulletin Board - {{ post.get_post_type_display }}s - Side Hustle
                 <a href="{% url 'profile' post.username.pk %}">{{ post.username }}</a>
             </div>
             <div class="col text-right">
-                <p class="card-text text-muted h6">{{ post.just_date }}</p>
+                <p class="card-text text-muted h6">{{ post.just_date_created_on }}</p>
             </div>
         </div>
     </div>

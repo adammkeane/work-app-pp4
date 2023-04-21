@@ -52,11 +52,11 @@ Profile - {{ post.username }} - Side Hustle
                 <div class="card-body pb-0 p-lg-4 text-center">
                     {% if "placeholder" in post.featured_image.url %}
                     <a href="{% url 'post_detail' post.slug post.id %}">
-                        <img class="rounded img-fluid" src="{% static 'images/full_logo_transparent.png' %}">
+                        <img class="rounded img-fluid border" src="{% static 'images/full_logo_transparent.png' %}">
                     </a>
                     {% else %}
                     <a href="{% url 'post_detail' post.slug post.id %}">
-                        <img class="rounded img-fluid" src=" {{ post.featured_image.url }}">
+                        <img class="rounded img-fluid border" src=" {{ post.featured_image.url }}">
                     </a>
                     {% endif %}
                 </div>
