@@ -77,7 +77,7 @@ Profile - {{ post.username }} - Side Hustle
                 <a class="card-text" href="{% url 'profile' post.username.pk %}">{{ post.username }}</a>
             </div>
             <div class="col text-right">
-                <p class="card-text text-muted h6">{{ post.just_date }}</p>
+                <p class="card-text text-muted h6">{{ post.just_date_created_on }}</p>
             </div>
         </div>
         {% if user.id is post.username.pk %}
@@ -99,7 +99,7 @@ Profile - {{ post.username }} - Side Hustle
                     <div class="modal-body text-center">
                         Are you sure you want to delete post?
                     </div>
-                    <div class="modal-footer row text-center">
+                    <div class="modal-footer row text-center mr-0 ml-0">
                         <div class="col text-right mx-2 pr-0">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                         </div>

@@ -7,25 +7,21 @@ from .models import Post, PostReview
 from .forms import PostForm, PostReviewForm
 
 
-class HomePage(generic.TemplateView):
-    template_name = 'index.html'
-
-
 class BulletinHome(generic.TemplateView):
-    template_name = 'bulletin_home.html'
+    template_name = 'workapp/bulletin_home.html'
 
 
 class PostListService(generic.ListView):
     model = Post
     queryset = Post.objects.filter(post_type=0).order_by('-created_on')
-    template_name = 'bulletin.html'
+    template_name = 'workapp/bulletin.html'
     paginate_by = 5
 
 
 class PostListRequest(generic.ListView):
     model = Post
     queryset = Post.objects.filter(post_type=1).order_by('-created_on')
-    template_name = 'bulletin.html'
+    template_name = 'workapp/bulletin.html'
     paginate_by = 5
 
 
@@ -40,7 +36,7 @@ class PostDetail(View):
 
         return render(
             request,
-            'post_detail.html',
+            'workapp/post_detail.html',
             {
                 'post': post,
                 'reviews': reviews,
@@ -53,7 +49,7 @@ class PostCreate(UserPassesTestMixin, View):
     def get(self, request, *args, **kwargs):
         return render(
             request,
-            'post_create.html',
+            'workapp/post_create.html',
             {
                 'post_form': PostForm(),
             },
@@ -71,7 +67,7 @@ class PostCreate(UserPassesTestMixin, View):
 
             return render(
                 request,
-                'post_create_success.html',
+                'workapp/post_create_success.html',
                 {
                     'post': post,
                 },
@@ -79,7 +75,7 @@ class PostCreate(UserPassesTestMixin, View):
         else:
             return render(
                 request,
-                'post_create.html',
+                'workapp/post_create.html',
                 {
                     'post_form': PostForm(data=request.POST),
                 },
@@ -95,7 +91,7 @@ class PostEdit(UserPassesTestMixin, View):
         if post.username == self.request.user:
             return render(
                 request,
-                'post_edit.html',
+                'workapp/post_edit.html',
                 {
                     'post_form': PostForm(instance=post),
                     'post': post,
@@ -119,7 +115,7 @@ class PostEdit(UserPassesTestMixin, View):
 
             return render(
                 request,
-                'post_edit_success.html',
+                'workapp/post_edit_success.html',
                 {
                     'post': post,
                 },
@@ -128,7 +124,7 @@ class PostEdit(UserPassesTestMixin, View):
         else:
             return render(
                 request,
-                'post_edit.html',
+                'workapp/post_edit.html',
                 {
                     'post_form': PostForm(instance=post),
                     'post': post,
@@ -147,7 +143,7 @@ class PostDelete(UserPassesTestMixin, View):
             post.delete()
             return render(
                         request,
-                        'post_delete_success.html',
+                        'workapp/post_delete_success.html',
                         {
                             'user': user,
                         },
@@ -164,7 +160,7 @@ class PostDelete(UserPassesTestMixin, View):
 
 class ProfilePage(generic.ListView):
     model = Post
-    template_name = 'profile.html'
+    template_name = 'workapp/profile.html'
     pagenate_by = 10
 
     def get_queryset(self):
@@ -175,7 +171,7 @@ class PostReviewCreate(UserPassesTestMixin, View):
     def get(self, request, post_id, *args, **kwargs):
         return render(
             request,
-            'post_review_create.html',
+            'workapp/post_review_create.html',
             {
                 'post_form': PostReviewForm(),
                 'post_id': post_id
@@ -195,7 +191,7 @@ class PostReviewCreate(UserPassesTestMixin, View):
 
             return render(
                 request,
-                'post_review_create_success.html',
+                'workapp/post_review_create_success.html',
                 {
                     'post': post,
                 },
@@ -203,7 +199,7 @@ class PostReviewCreate(UserPassesTestMixin, View):
         else:
             return render(
                 request,
-                'post__review_create.html',
+                'workapp/post__review_create.html',
                 {
                     'post_form': PostReviewForm(data=request.POST),
                 },

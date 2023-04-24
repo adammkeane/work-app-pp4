@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from workapp import views
+from home import views as views_home
 
 urlpatterns = [
-    path('', views.HomePage.as_view(), name='home'),
+    path('', views_home.HomePage.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('bulletin/', include('workapp.urls'), name='workapp_urls'),
