@@ -78,7 +78,7 @@ SUMMERNOTE_CONFIG = {
         ],
     },
     'css': (
-        'static/css/summernote.css',
+        'https://res.cloudinary.com/dwjngety0/raw/upload/v1682351429/static/css/summernote.1b283027a4b4.css',
     ),
 }
 
