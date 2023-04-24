@@ -52,7 +52,7 @@ Profile - {{ post.username }} - Side Hustle
                 <div class="card-body pb-0 p-lg-4 text-center">
                     {% if "placeholder" in post.featured_image.url %}
                     <a href="{% url 'post_detail' post.slug post.id %}">
-                        <img class="rounded img-fluid border" src="{% static 'images/full_logo_transparent.png' %}">
+                        <img class="rounded img-fluid border" src="https://res.cloudinary.com/dwjngety0/image/upload/v1682350889/full_logo_transparent3_gjakk2.png">
                     </a>
                     {% else %}
                     <a href="{% url 'post_detail' post.slug post.id %}">
