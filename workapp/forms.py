@@ -20,9 +20,16 @@ class PostForm(forms.ModelForm):
         )
         labels = {
             'rate': _('Rate (€)'),
-            'featured_image': _('Featured Image (shown on the Bulletin Board. If no file uploaded, the default SideHustle image will be used)'),
+            'featured_image': _(
+                'Featured Image (shown on the Bulletin Board. '
+                'If no file uploaded, the default SideHustle '
+                'image will be used)'
+                ),
             'blurb': _('Blurb (max 200 characters)'),
-            'contact_info': _("Contact Info (how other users will contact you about your post)")
+            'contact_info': _(
+                'Contact Info (how other users will contact '
+                'you about your post)'
+                )
         }
         widgets = {
             'description': SummernoteWidget(),

@@ -8,6 +8,7 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title', 'username')}
     summernote_fields = ('description')
 
+
 @admin.register(PostReview)
 class PostReviewAdmin(admin.ModelAdmin):
     search_fields: ('title', 'description')

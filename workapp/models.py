@@ -10,7 +10,9 @@ class Post(models.Model):
     post_type = models.IntegerField(choices=POST_TYPE, default=0)
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=55)
-    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts")
+    username = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_posts"
+        )
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField(max_length=4000)
     featured_image = CloudinaryField('image', default='placeholder')
@@ -21,7 +23,8 @@ class Post(models.Model):
     contact_info = models.TextField(max_length=400)
 
     class Meta:
-        # ordered in descending order, based on created_on value, so that newest posts are first.
+        # ordered in descending order, based on created_on value,
+        # so that newest posts are first.
         ordering = ['-created_on']
 
     def __str__(self):
@@ -66,17 +69,24 @@ RATING = (
 
 
 class PostReview(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post_review")
-    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_review")
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="post_review"
+        )
+    username = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_review"
+        )
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=55)
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField(max_length=10000)
     created_on = models.DateTimeField(auto_now_add=True)
-    rating = models.DecimalField(choices=RATING, max_digits=2, decimal_places=1)
+    rating = models.DecimalField(
+        choices=RATING, max_digits=2, decimal_places=1
+        )
 
     class Meta:
-        # ordered in descending order, based on created_on value, so that newest posts are first.
+        # ordered in descending order, based on created_on value,
+        # so that newest posts are first.
         ordering = ['-created_on']
 
     def __str__(self):
