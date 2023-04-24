@@ -78,7 +78,7 @@ SUMMERNOTE_CONFIG = {
         ],
     },
     'css': (
-        '/static/css/summernote.css',
+        'static/css/summernote.css',
     ),
 }
 
