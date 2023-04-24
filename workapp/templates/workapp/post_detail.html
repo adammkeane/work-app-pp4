@@ -22,9 +22,9 @@
             <div class="col">
                 <div class="card-body">
                     {% if "placeholder" in post.featured_image.url %}
-                    <img class="rounded img-fluid border" src="https://res.cloudinary.com/dwjngety0/image/upload/v1682350889/full_logo_transparent3_gjakk2.png">
+                    <img class="rounded img-fluid border" src="https://res.cloudinary.com/dwjngety0/image/upload/v1682350889/full_logo_transparent3_gjakk2.png" alt="user's uploaded post image">
                     {% else %}
-                    <img class="rounded img-fluid border" src=" {{ post.featured_image.url }}">
+                    <img class="rounded img-fluid border" src=" {{ post.featured_image.url }}" alt="website logo">
                     {% endif %}
                 </div>
             </div>
