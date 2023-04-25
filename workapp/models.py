@@ -31,12 +31,15 @@ class Post(models.Model):
         return self.title
 
     def just_date_created_on(self):
+        """Simplfies date"""
         return self.created_on.date()
 
     def just_date_updated_on(self):
+        """Simplfies date"""
         return self.updated_on.date()
 
     def avg_rating(self):
+        """Calculates the mean average rating of a post"""
         reviews = self.post_review.all()
         if len(reviews) > 0:
             review_total = 0
@@ -49,6 +52,7 @@ class Post(models.Model):
             return 'N/A'
 
     def reviews_total(self):
+        """Counts number of reviews a post has"""
         reviews = self.post_review.all()
         return len(reviews)
 
@@ -93,7 +97,9 @@ class PostReview(models.Model):
         return self.title
 
     def just_date_created_on(self):
+        """Simplfies date"""
         return self.created_on.date()
 
     def just_date_updated_on(self):
+        """Simplfies date"""
         return self.updated_on.date()

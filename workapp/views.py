@@ -8,10 +8,12 @@ from .forms import PostForm, PostReviewForm
 
 
 class BulletinHome(generic.TemplateView):
+    """View to show the bulletin home page"""
     template_name = 'workapp/bulletin_home.html'
 
 
 class PostListService(generic.ListView):
+    """View to show only service posts"""
     model = Post
     queryset = Post.objects.filter(post_type=0).order_by('-created_on')
     template_name = 'workapp/bulletin.html'
@@ -19,6 +21,7 @@ class PostListService(generic.ListView):
 
 
 class PostListRequest(generic.ListView):
+    """View to show only request posts"""
     model = Post
     queryset = Post.objects.filter(post_type=1).order_by('-created_on')
     template_name = 'workapp/bulletin.html'
@@ -26,6 +29,7 @@ class PostListRequest(generic.ListView):
 
 
 class PostDetail(View):
+    """View to show the details of a post"""
     def get(self, request, slug, id, *args, **kwargs):
         post = get_object_or_404(Post.objects, slug=slug, id=id)
         reviews = post.post_review.order_by('-created_on')
@@ -46,6 +50,7 @@ class PostDetail(View):
 
 
 class PostCreate(UserPassesTestMixin, View):
+    """View to handle post creation"""
     def get(self, request, *args, **kwargs):
         return render(
             request,
@@ -82,10 +87,12 @@ class PostCreate(UserPassesTestMixin, View):
             )
 
     def test_func(self):
+        """Mixin Test"""
         return self.request.user.is_authenticated
 
 
 class PostEdit(UserPassesTestMixin, View):
+    """View to handle post editing"""
     def get(self, request, post_id, *args, **kwargs):
         post = get_object_or_404(Post.objects, id=post_id)
         if post.username == self.request.user:
@@ -132,10 +139,12 @@ class PostEdit(UserPassesTestMixin, View):
             )
 
     def test_func(self):
+        """Mixin Test"""
         return self.request.user.is_authenticated
 
 
 class PostDelete(UserPassesTestMixin, View):
+    """View to handle post deletion"""
     def get(self, request, post_id, *args, **kwargs):
         post = get_object_or_404(Post.objects, id=post_id)
         if post.username == self.request.user:
@@ -155,19 +164,23 @@ class PostDelete(UserPassesTestMixin, View):
             )
 
     def test_func(self):
+        """Mixin Test"""
         return self.request.user.is_authenticated
 
 
 class ProfilePage(generic.ListView):
+    """View to handle profile page display"""
     model = Post
     template_name = 'workapp/profile.html'
     pagenate_by = 10
 
     def get_queryset(self):
+        """Gets only the posts the user in question has created"""
         return Post.objects.filter(username=self.kwargs.get('user'))
 
 
 class PostReviewCreate(UserPassesTestMixin, View):
+    """View to handle post review creation"""
     def get(self, request, post_id, *args, **kwargs):
         return render(
             request,
@@ -182,6 +195,7 @@ class PostReviewCreate(UserPassesTestMixin, View):
         post_form = PostReviewForm(request.POST)
 
         if post_form.is_valid():
+            """If review form is valid, add review to database"""
             entry = post_form.save(commit=False)
             entry.username = request.user
             entry.slug = slugify(f'{entry.title}-{entry.username}')
@@ -197,6 +211,7 @@ class PostReviewCreate(UserPassesTestMixin, View):
                 },
             )
         else:
+            """If review form is not valid, return to form page"""
             return render(
                 request,
                 'workapp/post__review_create.html',
@@ -206,4 +221,5 @@ class PostReviewCreate(UserPassesTestMixin, View):
             )
 
     def test_func(self):
+        """Mixin Test"""
         return self.request.user.is_authenticated
