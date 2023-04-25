@@ -14,6 +14,52 @@ View the live site [here.](https://adam-pp4-workapp.herokuapp.com/)
 
 ![Mockup](docs/readme-images/mockup.PNG)
 
+# User-Experience-Design
+
+## The-Strategy-Plane
+
+### Agile Planning
+
+This project was developed using agile methodologies. Epics(milestones) were broken down into User Stories, and then broken down even further into tasks. Acceptance Criteria and Dependcies were also laid out in the User Stories.
+
+The Kanban board was created using github projects and can be located [here](https://github.com/users/adammkeane/projects/5/views/1).
+
+![Kanban image](docs/readme-images/kanban_board.PNG)
+![User story example image 1](docs/readme-images/user_story1.PNG)
+![User story example image 2](docs/readme-images/user_story2.PNG)
+
+**EPIC 1 - Initial Setup**
+- USER STORY: Django Setup & Deployment
+- USER STORY: Admin Site
+- USER STORY: Post Model
+
+**EPIC 2 - Bulletin Board**
+
+- USER STORY: Bulletin Board
+- USER STORY: Split Bulletin Board
+- USER STORY: Post Details
+- USER STORY: Search Posts
+
+**EPIC 3 - Site Basics**
+
+- USER STORY: Home Page
+- USER STORY: Nav Bar/Bootstrap Install
+- USER STORY: Footer
+- USER STORY: Allauth/User Authorization Management
+
+**EPIC 4 - Post CRUD Model**
+- USER STORY: Create Post
+- USER STORY: View User's Post (Profile Page)
+- USER STORY: Edit Post
+- USER STORY: Delete Post
+
+**EPIC 5 - Post Reviews**
+- USER STORY: PostReview Model
+- USER STORY: Create Post Reviews
+- USER STORY: Edit Post Reviews
+- USER STORY: View Post Reviews
+- USER STORY: Delete Post Reviews
+
 ## Features
 
 ### Site wide
