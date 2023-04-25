@@ -96,99 +96,32 @@ The Kanban board was created using github projects and can be located [here](htt
 
 ![Post Reviews](docs/readme-images/profile_page.PNG)
 
+## The-Skeleton-Plane
+
+### Wireframes
+
+- Home Page
 
 
-----------------------
-## Features
+![Home Page](docs/readme-images/home_page_wireframe.PNG)
 
-### Site wide
-* Navigation Menu
-    * Contains links to the Home page (by clicking on either the site name or the home symbol) and a quesiton mark button to show the How To Play modal, no matter what page their on. It will be responsive on all devices.
-    * This will allow users to easily navigate between the pages within the site on any size device. 
-    * Flex grid used to have the wesbite title centred, and the other icons aligned to the right.
-    * Uses simple black and white color palette, which matches the rest of the site. Reasoning behind this was to give the website a clean, simple and efficient feel.
 
-Nav Menu
-![Nav Menu](docs/readme-images/nav-menu.PNG)
+- Bulletin Board
 
-* Footer
-    * This will contain icons as links to social media websites that will open in new tabs. 
-    * Icons will be accessible to the visually impaired who may be using a screen reader, by the use of aria labels.
-    * This will allow users to a way follow our social media content and stay up to date with our porjects.
 
-![Footer](docs/readme-images/footer.PNG)
+![Bulletin Board](docs/readme-images/bulletin_board_wireframe.PNG)
 
-* Favicon
-    * A site wide favicon has been implemented with a custom emblem.
-    * This will provide an image in the the tabs header to allow the user to easily identify the website if they have multiple tabs open.
+- Bulletin Home
 
-![Favicon](docs/readme-images/favicon.PNG)
+![Bulletin Home](docs/readme-images/bulletin_home_wireframe.PNG)
 
-### Home Page
-* Game Selection
-    * Provides users a selection of games to play.
-    * Wanted to keep this design simple, so that users can quickly see the games on offer and jump in.
+- Post Detail
 
-![Game Selection](docs/readme-images/games.PNG)
+![Post Detail](docs/readme-images/post_detail_wireframe.PNG)
 
-* How To Play Modal
-    * Provides user with instructions how to play the game if they would like. 
-    * Doesn't force user to read before playing the game, as this may annoy repeat visiters who know the rules and just want to jump straight into learning.
-    * Simple, clear 'How To Play' button to active the modal. The same modal can be accessed on any web page through the nav bar's question mark symbol.
-    * Hopefully strikes a nice balance between giving all the information a user needs, and not being too verbose or complex.
-    * Greyed out the rest of web page while modal active to keep user's attention on the modal, while still letting them know they can easily get back to the home page when ready.
-    * Modal created with code adapted from this [W3 tutorial.](https://www.w3schools.com/howto/howto_css_modals.asp)
+- Profile Page
 
-![How To Play Button](docs/readme-images/how-to-play-btn.PNG)
-![How To Play Modal](docs/readme-images/modal.PNG)
-
-### Capital Cities of Asia Quiz Page
-* Country Box.
-    * At start of game, a country is randomly from all possible countries of Asia. 
-    * After each country question, that previous country is removed from the list of potential options for the game going forward, and the random selection begins again. This is done in order to make sure every will show up over the course of the quiz, and that no country will ever show up twice.
-    * This also ensures that no two quizes are the same. Users wont get bored by the same questions at the same place in each game.
-
-![Country](docs/readme-images/country.PNG)
-
-* Capital Box/Dropdown List
-    * Dropdown list provides user a quick, autocomplete method of getting their capital guesses into the input box.
-    * Users can either start typing their guess, and the dropdown list will appear with all the potential Asian captials that start with what the user has entered so far, or they can click the down arrow icon to the right of the input box in order to see all the potential guess options. This arrow changes directon, depending on the state of the dropdown list, to hint to users of its functionaliy.
-    * This allows users who know the answer to quickly start typing the first letter or two of their guess and then easily select it from the list.
-    * It also allows users who have no idea what the answer is, and would just like to see all the potential options to get their scope focused, a way to see all the options at once.
-    * All options were included so as not to make the game too easy with some process of elimination. 
-    * Once a user selects a dropdown list item, it will quickly appear in the input box, ready to be submit for feedback.
-    * Code from droplist was taken and modified from [here.](https://codingartistweb.com/2021/12/autocomplete-suggestions-on-input-field-with-javascript/)
-
-![Dropdown](docs/readme-images/dropdown.PNG)
-
-* Game Buttons/User Feedback
-    * Provide user with way to check their guesses and/or move onto the next question.
-    * The check answer button does different things, depending on what the user's guess is.
-    * It will check if the user's guess matches the key/value pairing of country/captial object structure. 
-    * If it matches, the user will be given a message in text below the buttons saying so, as well as a green background added to the input box and text feedback.
-    * If user makes a valid selection of one of the dropdown options, but it is not correct, text and background color will generate to say so. This time the color will be red. The text will include what the correct answer is in bold, to allow the user to learn while the question is still fresh in their mind.
-    * Finally, if a user creates an input that does not match one of the dropdown options (an invalid guess), text and background color will generate to say so. This time the color will be yellow. The text will explain what is needed for a valid guess.
-    * All background colors were chose to allow the foreground text to be legible, and also to represent the colors of a traffic light.
-    * The next button allows user to skip to the next question. User doesn't have to make a guess on each question. They can simply skip without answering. This will allow users who are happy that they know a particular capital to just click next until they find one they're not sure about. As they learn more capitals, they'll be able to quickly skip through and target the ones they're weak on. This caters for users who aren't too concerned with their score and are instead just interested in learning all the capitals.
-    * Controlling focus, clearing user input and disabling inputs are all important for these buttons. The aim with this sort of manipulation is make the game as quick, simple and intuitive as possible, eg when a user makes a a guess, the focus is always taken away from the input field (even disabled for correct/incorrect guesses), so that on mobile devices, the keyboard disappears and the user can more clearly see the feedback text.
-
-![Game Buttons](docs/readme-images/game-buttons.PNG)  
-![Correct](docs/readme-images/correct.PNG)  
-![Incorrect](docs/readme-images/incorrect.PNG)  
-![Invalid](docs/readme-images/invalid.PNG)  
-
-* Score & Question Number Tracker
-    * Provides the user a visual represtation of how well they're doing and and how many questions they've answered/have yet to answer.
-    * For users who are more interested in getting a high score, this is a simple way to bring a potentially competitive game aspect to it.
-
-![Score](docs/readme-images/score.PNG) 
-
-### Features Left to Implement
-
-* The ability to navigate the dropdown list options with the up and down arrows on the keyboard.
-* The ability for a user to type in the full capital guess in all lower case and for that to deemed correct. Currently and this is case sensitive.
-* Include a streak tracking in the game, so that users can see what's the mosr correct answers in a row they got.
-* The Capital Cities of the Caribbean game mentioned on the home page.
+![Profile Page](docs/readme-images/profile_page_wireframe.PNG)
 
 ## Technologies
 
