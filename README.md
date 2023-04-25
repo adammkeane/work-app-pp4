@@ -60,6 +60,45 @@ The Kanban board was created using github projects and can be located [here](htt
 - USER STORY: View Post Reviews
 - USER STORY: Delete Post Reviews
 
+## The-Scope-Plane
+
+* Responsive Design - Site should be fully functional on all devices from 320px up
+* Hamburger menu for mobile devices
+* Ability to perform CRUD functionality on Post model.
+* Some restricted access for signed in users and post creators.
+
+## The-Structure-Plane
+
+### Features
+
+**Bulletin Board**
+
+``USER STORY - As a Site User I can view a paginated list of post so that I can see what services/requests are being offered/solicited and get more information about the ones I'm interested in.``
+
+![Bulletin Board](docs/readme-images/bulletin_board.PNG)
+![Bulletin Board2](docs/readme-images/bulletin_board2.PNG)
+
+**Post Reviews**
+
+``USER STORY - As a Site User I can view review scores for posts so that I can have useful information when deciding whether or not I should engage with the post and trust the poster.``
+
+``USER STORY - As a Site User I can create a review of a post so that I can share useful knowledge with other site users.``
+
+![Post Reviews](docs/readme-images/post_reviews.PNG)
+
+**Profile Page**
+
+``USER STORY - As a Site User I can view a User's Profile Page (including mine own), which contains a list of all posts from that User so that I can either keep track of my own posts, or get more information about another Users services/requests.``
+
+``USER STORY - As a Site User I can edit my posts so that I can makes changes after the initial posting.``
+
+``USER STORY - As a Site User I can delete my posts so that I can remove posts that I have no more need for.``
+
+![Post Reviews](docs/readme-images/profile_page.PNG)
+
+
+
+----------------------
 ## Features
 
 ### Site wide
